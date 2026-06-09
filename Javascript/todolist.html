@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+
+    <style>
+        table, th, td{
+            border:1px solid black;
+            border-collapse:collapse;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="task" placeholder="Enter task">
+
+<button onclick="addTask()">Add</button>
+
+<table id="todoTable">
+    <tr>
+        <th>Task</th>
+        <th>Actions</th>
+    </tr>
+</table>
+
+<script>
+
+    function addTask(){
+
+        let task = document.getElementById("task").value;
+
+        let table = document.getElementById("todoTable");
+
+        let row = table.insertRow();
+
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+
+        cell1.innerHTML = task;
+
+        cell2.innerHTML =
+        `<button onclick="updateTask(this)">Update</button>
+         <button onclick="deleteTask(this)">Delete</button>`;
+
+        document.getElementById("task").value = "";
+    }
+
+    function deleteTask(btn){
+        let row = btn.parentNode.parentNode;
+        row.remove();
+    }
+
+    function updateTask(btn){
+
+        let row = btn.parentNode.parentNode;
+
+        let currentTask = row.cells[0].innerHTML;
+
+        let newTask = prompt("Update task", currentTask);
+
+        row.cells[0].innerHTML = newTask;
+    }
+
+</script>
+
+</body>
+</html>

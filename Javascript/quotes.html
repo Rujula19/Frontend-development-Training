@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Quote Generator</title>
+</head>
+<body>
+
+<h2 id="quote">Click button to see quote</h2>
+
+<button onclick="showQuote()">Generate Quote</button>
+
+<script>
+    let quotes = [
+        "The most amazing things that can happen to a human being will happen to you if you just lower your expectations",
+        "Never be afraid to reach for the stars because even if you fall, you'll always be wearing a parent-chute.",
+        "Dream big",
+        "Success needs hard work",
+        "when life gives you lemonade ,make lemons life will be like WHAT!"
+    ];
+
+    function showQuote(){
+        let randomIndex = Math.floor(Math.random() * quotes.length);
+        document.getElementById("quote").innerHTML = quotes[randomIndex];
+    }
+</script>
+
+</body>
+</html>
